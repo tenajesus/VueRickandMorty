@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Busca Usuarios</title>
+  </head>
+  <body>
+    <main>
+      <usuario></usuario>
+    </main>
+    <template id="usuario-template">
+      <div>
+        <hr />
+        <section class="cabecera">
+          <slot></slot>
+          <input type="search" placeholder="Filtrar Personajes" class="filtro" v-model="search" />
+        </section>
+        <hr />
+        <section class="usuarios">
+           <user :datos="pers" v-for="pers in filtrardatos"></user>
+        </section>
+      </div>
+    </template>
+
+<template id="user-template">
+    <div class="usuario">
+        <img align="left" :src="datos.pic" :alt="datos.nombre" width="250" height=
+        "250">
+        <section class="data">
+            <hr>
+            {{datos.nombre}} | <b>Status:</b>{{datos.state}}
+       <br>
+       <hr>
+        </section>
+    </div>
+</template>
+
+  </body>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="main.js"></script>
+</html>
